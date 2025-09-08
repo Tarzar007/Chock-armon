@@ -1,0 +1,210 @@
+
+/* font thai */
+@import url('https://fonts.googleapis.com/css2?family=Charm&family=IBM+Plex+Sans:ital,wght@1,100&family=Jost:wght@300&family=Montserrat:wght@200&family=Noto+Sans:wght@600&family=Noto+Serif+Thai:wght@600&family=Nunito:wght@600&family=Source+Sans+3:ital,wght@0,400;0,700;1,600&family=Tektur:wght@400;500&family=Ubuntu:wght@500&family=Work+Sans&display=swap');
+body {
+font-family: 'Source Sans 3', sans-serif;
+}
+/* Navbar */
+ .navbar{
+    margin: 0;
+    padding: 0;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+ }
+.nav-main {
+    background-color: rgb(73, 73, 223);
+    color: aliceblue;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Noto Serif Thai', serif;
+}
+
+.nav-small {
+    background-color: rgb(162, 162, 231);
+    font-size: 8px;
+    color: aliceblue;
+    width: 100%;
+  
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .nav-main {
+        font-size: 12px;
+    }
+}
+/* Dashbroad */
+.container-dahs {
+    margin-top: 2.5rem;
+}
+.quarter {
+    border-radius: 5px;
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+height: 11rem;
+}
+
+h4 {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+h3{
+    font-size: 25px;
+    margin: 20px;
+   
+}
+h3,h4{
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Noto Serif Thai', serif;
+}
+.decription {
+    margin: 2rem;
+  
+}
+
+.a-link {
+    color: aliceblue;
+    text-decoration: none;
+    font-family: 'Noto Serif Thai', serif;
+        font-size: 18px;
+    transition: all 0.5s ease;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.a-link:hover {
+    color: #ccd6d6;
+    transform: scale(1.1);
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .container-dahs {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .panel {
+        width: 100%;
+    }
+}
+
+/* Home */
+
+.btn-control{
+    padding: 16px;
+    margin: 2rem;
+    width: 6em;
+}
+.control-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.table-container{
+   max-width: 100%;
+   margin: 2rem;
+}
+
+/* User */
+.card-container{
+    margin: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 24px;
+    gap: 20px;
+}
+.card-body p{
+    padding: 2px;
+    margin: 0;
+}
+.user-content{
+    display: flex;
+    flex-direction: row;
+        justify-content: start;
+}
+.btn-insert{
+    padding: 8px;
+    margin: 2rem 0 0 2rem;
+    width: 4.8em;
+}
+
+/* ------------------------------------------ */
+.card {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    margin: 3rem;
+    padding: 2rem;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.button-submit {
+    margin: 1rem;
+    height: 60px;
+    width: 150px;
+    text-shadow: 1px 1px 1px rgba(79, 78, 78, 0.5);
+}
+
+#submit,
+
+button {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .button-submit {
+        margin: 1rem;
+        height: 60px;
+        width: 80px;
+    }
+}
+
+.date-submit {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    margin-left: 2rem;
+    gap: 20px;
+    font-family: 'Noto Serif Thai', serif;
+}
+
+.control-button,
+.table-container {
+    font-family: 'Noto Serif Thai', serif;
+}
+
+
+/* Water */
+#water_select,
+option {
+    padding: 1rem;
+    width: 100%;
+    margin: 1rem;
+    border-radius: 2px;
+    border-top: 1px solid gray;
+    border-right: 2px solid gray;
+    border-left: 2px solid gray;
+    outline: none;
+    border-bottom: 2px solid gray;
+    text-align: center;
+}
+
+#water {
+    padding: 1rem;
+    margin: 1rem;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+#submit {
+    padding: 1rem;
+    margin: 1rem;
+}
+
