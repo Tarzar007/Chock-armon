@@ -6,6 +6,7 @@ $stmt = $conn->prepare($query);
 $stmt->execute();
 $rows = $stmt->fetch(PDO::FETCH_ASSOC);
 $total_rows = $rows['total_gas'];
+$total_day = $rows['formatted_day'];
 
 // count total price_equipment
 $query = "SELECT DATE_FORMAT(day, '%Y-%m-%d') AS formatted_day, total_equipment FROM ( SELECT DATE(date_income) AS day, SUM(price_income) AS total_equipment FROM tbl_income WHERE product_name = 'วัสดุและอุปกรณ์' GROUP BY day ORDER BY day DESC LIMIT 1 ) AS subquery1;";
@@ -21,6 +22,18 @@ $stmt = $conn->prepare($query);
 $stmt->execute();
 $rows3 = $stmt->fetch(PDO::FETCH_ASSOC);
 $total_rows3 = $rows3['total_water'];
+
+// count total price_sum
+$query = "SELECT 
+    DATE(date_income) AS daysum,
+    SUM(price_income) AS total_sum
+FROM tbl_income
+GROUP BY DATE(date_income)
+ORDER BY daysum DESC";
+$stmt = $conn->prepare($query);
+$stmt->execute();
+$rowsday = $stmt->fetch(PDO::FETCH_ASSOC);
+$total_day = $rowsday['total_sum'];
 
 
 ?>
@@ -39,7 +52,7 @@ $total_rows3 = $rows3['total_water'];
     <div class="w3-row-padding w3-margin-bottom container-dahs">
         <div class="w3-quarter panel">
             <div class="w3-container w3-red w3-padding-16 quarter">
-                <h4>รายได้จากน้ำมันวันนี้</h4>
+                <h4>รายได้จากน้ำมันวันนี้ </h4>
                 <div class="w3-right" style="margin-right: 12px;">
                     <h3><?php echo $rows['total_gas'] ?> บาท</h3>
                 </div>
@@ -68,7 +81,7 @@ $total_rows3 = $rows3['total_water'];
             <div class="w3-container w3-amber w3-padding-16 quarter">
                 <h4>รายได้รวมวันนี้</h4>
                 <div class="w3-right" style="margin-right: 12px;">
-                       <!-- <h3><?php echo $rows1['total_equipment'] ?> บาท</h3> -->
+                       <h3><?php echo $rowsday['total_sum']; ?> บาท</h3>
                 </div>
                 <div class="decription"><a class="a-link" href="./equipment.php">รายละเอียด</a> </div>
             </div>

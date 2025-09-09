@@ -8,7 +8,7 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/login.css">
-    <title>เข้าสู่ระบบ</title>
+    <title>เข้าสู่ระบบ ควยถอก</title>
 </head>
 
 <body>
