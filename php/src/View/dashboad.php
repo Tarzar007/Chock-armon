@@ -36,6 +36,16 @@ $rowsday = $stmt->fetch(PDO::FETCH_ASSOC);
 $total_day = $rowsday['total_sum'];
 
 
+// count total price_sum
+$query = "SELECT SUM(price_income) AS total_sum
+          FROM tbl_income
+          WHERE DATE(date_income) = CURDATE()";
+$stmt = $conn->prepare($query);
+$stmt->execute();
+$rowsum = $stmt->fetch(PDO::FETCH_ASSOC);
+$total_today = $rowsum['total_sum'] ;
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,6 +62,7 @@ $total_day = $rowsday['total_sum'];
     <div class="w3-row-padding w3-margin-bottom container-dahs">
         <div class="w3-quarter panel">
             <div class="w3-container w3-red w3-padding-16 quarter">
+
                 <h4>รายได้จากน้ำมันวันนี้ </h4>
                 <div class="w3-right" style="margin-right: 12px;">
                     <h3><?php echo $rows['total_gas'] ?> บาท</h3>
@@ -72,7 +83,7 @@ $total_day = $rowsday['total_sum'];
             <div class="w3-container w3-teal w3-padding-16 quarter">
                 <h4>รายได้จากวัสดุ-อุปกรณ์วันนี้</h4>
                 <div class="w3-right" style="margin-right: 12px;">
-                       <h3><?php echo $rows1['total_equipment'] ?> บาท</h3>
+                       <h3><?php echo $rows1['total_equipment']; ?> บาท</h3>
                 </div>
                 <div class="decription"><a class="a-link" href="./equipment.php">รายละเอียด</a> </div>
             </div>
