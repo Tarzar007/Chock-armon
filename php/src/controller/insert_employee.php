@@ -23,7 +23,7 @@ if (isset($_POST['btn_submit'])) {
     } else {
         try {
             if (!isset($errorMsg)) {
-                $insert_user = $db->prepare("INSERT INTO tbl_user 
+                $insert_user = $db->prepare("INSERT INTO tbl_employee 
                 (img,name,sur_name,nick_name,tell,birth_day,address,duty,salary,start_day,admin) 
                 VALUES (:img,:name,:lname,:nname,:tell,:brith,:addr,:duty,:salary,:start,:admin)");
                 $insert_user->bindParam(':img', $img_data, PDO::PARAM_LOB);

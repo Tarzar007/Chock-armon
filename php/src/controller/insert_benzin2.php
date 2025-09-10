@@ -1,51 +1,37 @@
-  <!-- sweetalert2 -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <?php
-    require_once '../server/server.php';
-
-    function displaySuccessAlert($message)
-    {
-        echo "<script>
-           var audio = new Audio('../assets/chaeck.mp3'); 
-                            audio.play();
-            $(document).ready(function(){
-                Swal.fire({
-                    title: '$message',
-                    text: '',
-                    icon: 'success',
-                    timer: 2300,
-                    showConfirmButton: false
-                });
-            });
-          </script>";
-    }
+    <?php
+    session_start();
+    require_once '../models/server.php'; // เชื่อม DB
 
     if (isset($_POST['btn_gas'])) {
         $name_gas = $_POST['txt_benzin95'];
         $pice_gas = $_POST['gas_pice'];
-        // ฟังก์ชันสำหรับแสดง SweetAlert2 แจ้งเตือน
 
         if (empty($pice_gas)) {
-            $errorMsg = "ใส่ราคา";
+            $_SESSION['error'] = "กรุณาใส่ราคา";
+            header("Location: ../View/gasStation.php");
+            exit();
         } else {
             try {
-                if (!isset($errorMsg)) {
-                    $insert_pice = $db->prepare("INSERT INTO tbl_income (product_name,price_income) VALUES (:namegas,:gas)");
-                    $insert_pice->bindParam(':namegas', $name_gas);
-                    $insert_pice->bindParam(':gas', $pice_gas);
-                    $insert_pice->execute();
-                    if ($insert_pice) {
-                        $message = "ข้อมูลถูกบันทึกเรียบร้อย!";
-                        displaySuccessAlert($message);
-                        header("refresh:1; url=../gasStation.php");
-                    } else {
-                        $_SESSION['warning'] = "เกิดข้อผิดพลาด";
-                        // header("refresh:1; ./gasStation.php");
-                    }
+                $insert_pice = $conn->prepare(
+                    "INSERT INTO tbl_income (product_name, price_income) VALUES (:namegas, :gas)"
+                );
+                $insert_pice->bindParam(':namegas', $name_gas);
+                $insert_pice->bindParam(':gas', $pice_gas);
+                $insert_pice->execute();
+
+                if ($insert_pice) {
+                    $_SESSION['success95'] = "ข้อมูลถูกบันทึกเรียบร้อย!";
+                    header("Location: ../View/gasStation.php");
+                    exit();
+                } else {
+                    $_SESSION['warning95'] = "เกิดข้อผิดพลาดในการบันทึกข้อมูล";
+                    header("Location: ../View/gasStation.php");
+                    exit();
                 }
             } catch (PDOException $e) {
-                echo $e->getMessage();
+                $_SESSION['warning95'] = "เกิดข้อผิดพลาด: " . $e->getMessage();
+                header("Location: ../View/gasStation.php");
+                exit();
             }
         }
     }

@@ -1,5 +1,5 @@
 <?php
-require_once('./server/server.php');
+require_once('../models/server.php');
 if (isset($_GET['user_id'])) {
     try {
         $id = $_GET['user_id'];
@@ -34,11 +34,11 @@ if (isset($_GET['delete_user'])) {
 
 <body>
     <?php include 'navbar.php' ?>
-    <?php include './components/model_user.php' ?>
+    <?php include '../components/model_user.php' ?>
     <div class="user-container">
         <div class="user-content">
-            <a href="./components/addUser.php" target="_blank" class="btn btn-success btn-insert">เพิ่ม</a>
-            <a href="./components/apply.php" target="_blank" class="btn btn-primary btn-insert">ใบสมัคร</a>
+            <a href="../components/addUser.php" target="_blank" class="btn btn-success btn-insert">เพิ่ม</a>
+            <a href="../components/apply.php" target="_blank" class="btn btn-primary btn-insert">ใบสมัคร</a>
         </div>
         <div class="table-container">
             <table class="table table-striped table-hover">
@@ -54,8 +54,7 @@ if (isset($_GET['delete_user'])) {
                 </thead>
                 <tbody>
                     <?php
-                    require_once('./server/server.php');
-                    $select_user = $db->prepare("SELECT * FROM tbl_user");
+                    $select_user = $conn->prepare("SELECT * FROM tbl_employee");
 
                     $select_user->execute();
 
@@ -86,7 +85,7 @@ if (isset($_GET['delete_user'])) {
         function userDetail(userId) {
             console.log(userId);
             $.ajax({
-                url: "./controller/select_data.php",
+                url: "../controller/select_data.php",
                 method: "post",
                 dataType: 'json',
                 data: {

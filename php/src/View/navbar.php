@@ -20,9 +20,9 @@
             <a href="index.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large ">หน้าหลัก</a>
             <a href="gasStation.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large ">ปั้มน้ำมัน</a>
             <a href="equipment.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large ">อุปกรณ์-วัสดุ</a>
-            <!-- <a href="candy.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large ">ขนม-เครื่องดื่ม</a> -->
             <a href="water.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large ">โรงน้ำ</a>
-            <a href="user.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large ">พนักงาน</a>
+            <a href="employee.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large ">พนักงาน</a>
+            <a href="expenses.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large ">รายจ่าย</a>
             <a href="../login.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large ">ออกจากระบบ</a>
         </div>
 
@@ -31,9 +31,9 @@
             <a href="index.php" class="w3-bar-item w3-button w3-padding-large">หน้าหลัก</a>
             <a href="gasStation.php" class="w3-bar-item w3-button w3-padding-large">ปั้มน้ำมัน</a>
             <a href="equipment.php" class="w3-bar-item w3-button w3-padding-large">อุปกรณ์-วัสดุ</a>
-            <!-- <a href="candy.php" class="w3-bar-item w3-button w3-padding-large">ขนม-เครื่องดื่ม</a> -->
             <a href="water.php" class="w3-bar-item w3-button w3-padding-large">โรงน้ำ</a>
-            <a href="user.php" class="w3-bar-item w3-button w3-padding-large">พนักงาน</a>
+            <a href="employee.php" class="w3-bar-item w3-button w3-padding-large">พนักงาน</a>
+            <a href="expenses.php" class="w3-bar-item w3-button w3-padding-large">รายจ่าย</a>
             <a href="../login.php" class="w3-bar-item w3-button w3-padding-large">ออกจากระบบ</a>
         </div>
     </div>
