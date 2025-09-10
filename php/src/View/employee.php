@@ -34,7 +34,7 @@ if (isset($_GET['delete_user'])) {
 
 <body>
     <?php include 'navbar.php' ?>
-    <?php include '../components/model_user.php' ?>
+    <?php include '../components/model_employee.php' ?>
     <div class="user-container">
         <div class="user-content">
             <a href="../components/addUser.php" target="_blank" class="btn btn-success btn-insert">เพิ่ม</a>
@@ -61,13 +61,13 @@ if (isset($_GET['delete_user'])) {
                     while ($row = $select_user->fetch(PDO::FETCH_ASSOC)) {
                     ?>
                         <tr>
-                            <td><img style="width: 50px; height: 50px;" src="data:image/jpeg;base64,<?php echo base64_encode($row['img']); ?>" alt="User Image"></td>
-                            <td><?php echo $row['name']; ?></td>
-                            <td><?php echo $row['sur_name']; ?></td>
-                            <td><?php echo $row['birth_day']; ?></td>
-                            <td><?php echo $row['start_day']; ?></td>
+                            <td><img style="width: 50px; height: 50px;" src="data:image/jpeg;base64,<?php echo base64_encode($row['img_employee']); ?>" alt="User Image"></td>
+                            <td><?php echo $row['fristname_employee']; ?></td>
+                            <td><?php echo $row['surname_employee']; ?></td>
+                            <td><?php echo $row['birth_employee']; ?></td>
+                            <td><?php echo $row['start_employee']; ?></td>
                             <td>
-                                <button class="btn btn-primary button" data-toggle="modal" data-target="#userModal" onclick="userDetail('<?php echo $row['user_id'] ?>')" data-user-id="<?php echo $row['user_id']; ?>">
+                                <button class="btn btn-primary button" data-toggle="modal" data-target="#userModal" onclick="userDetail('<?php echo $row['id_employee'] ?>')" data-user-id="<?php echo $row['id_employee']; ?>">
                                     เพิ่มเติม
                                 </button>
                             </td>
@@ -89,21 +89,20 @@ if (isset($_GET['delete_user'])) {
                 method: "post",
                 dataType: 'json',
                 data: {
-                    user_id: userId,
+                    id_employee: userId,
                 },
                 success: function(userData) {
                     console.log(userData);
-                    $("#userImage").attr("src", "data:image/jpeg;base64," + userData.img); // แสดงรูปภาพ
-                    $("#userName").text("ชื่อ-นามสกุล : " + userData.name + ' ' + userData.sur_name);
-                    // $("#userLastName").text("นามสกุล: " + userData.sur_name);
-                    $("#userNickName").text("ชื่อเล่น: " + userData.nick_name);
-                    $("#userTell").text("เบอณ์โทร: " + userData.tell);
-                    $("#userAge").text("อายุ: " + userData.birth_day);
-                    $("#userAddree").text("ที่อยู่: " + userData.address);
-                    $("#userDuty").text("ตำแหน่ง: " + userData.duty);
-                    $("#userSalary").text("เงินเดือน: " + userData.salary);
-                    $("#userStart").text("วันที่เริ่มทำงาน: " + userData.start_day);
-                    $("#userAdmin").text("ผู้บันทึก: " + userData.admin);
+                    $("#userImage").attr("src", "data:image/jpeg;base64," + userData.img_employee); // แสดงรูปภาพ
+                    $("#userName").text("ชื่อ-นามสกุล : " + userData.fristname_employee + ' ' + userData.surname_employee);
+                    $("#userNickName").text("ชื่อเล่น: " + userData.nickname_employee);
+                    $("#userTell").text("เบอณ์โทร: " + userData.tel_employee);
+                    $("#userAge").text("อายุ: " + userData.birth_employee);
+                    $("#userAddree").text("ที่อยู่: " + userData.address_employee);
+                    $("#userDuty").text("ตำแหน่ง: " + userData.duty_employee);
+                    $("#userSalary").text("เงินเดือน: " + userData.sarary_employee);
+                    $("#userStart").text("วันที่เริ่มทำงาน: " + userData.start_employee);
+                    $("#userAdmin").text("ผู้บันทึก: " + userData.admin_employee);
                 }
             });
         }

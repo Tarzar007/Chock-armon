@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <form action="../controller/insert_user.php" method="post" enctype="multipart/form-data">
+    <form action="../controller/insert_employee.php" method="post" enctype="multipart/form-data">
         <div class="container text-center">
             <div class="row justify-content-center">
                 <div class="col-8">

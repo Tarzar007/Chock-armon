@@ -1,5 +1,5 @@
 <?php
-require_once '../server/server.php';
+require_once '../models/server.php';
 if (isset($_POST['btn_submit'])) {
     if (isset($_FILES['txt_file']) && $_FILES['txt_file']['error'] === UPLOAD_ERR_OK) {
         $img_tmp_path = $_FILES['txt_file']['tmp_name'];
@@ -23,8 +23,8 @@ if (isset($_POST['btn_submit'])) {
     } else {
         try {
             if (!isset($errorMsg)) {
-                $insert_user = $db->prepare("INSERT INTO tbl_employee 
-                (img,name,sur_name,nick_name,tell,birth_day,address,duty,salary,start_day,admin) 
+                $insert_user = $conn->prepare("INSERT INTO tbl_employee 
+                (img_employee,fristname_employee,surname_employee,nickname_employee,tel_employee,birth_employee,address_employee,duty_employee,sarary_employee,start_employee,admin_employee) 
                 VALUES (:img,:name,:lname,:nname,:tell,:brith,:addr,:duty,:salary,:start,:admin)");
                 $insert_user->bindParam(':img', $img_data, PDO::PARAM_LOB);
                 $insert_user->bindParam(':name', $name);
@@ -40,7 +40,7 @@ if (isset($_POST['btn_submit'])) {
                 $insert_user->execute();
                 if ($insert_user) {
                     $_SESSION['succes'] = "เพิ่มข้อมูลสำเร็จ";
-                    header("Location: ../user.php");
+                    header("Location: ../View/employee.php");
                 } else {
                     $_SESSION['warning'] = "เกิดข้อผิดพลาด";
                     // header("refresh:1; ./gasStation.php");

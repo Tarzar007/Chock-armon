@@ -23,6 +23,7 @@
             <a href="water.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large ">โรงน้ำ</a>
             <a href="employee.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large ">พนักงาน</a>
             <a href="expenses.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large ">รายจ่าย</a>
+            <a href="chackBalance.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large ">เช็คยอด</a>
             <a href="../login.php" class="w3-bar-item w3-button w3-hide-small w3-padding-large ">ออกจากระบบ</a>
         </div>
 
@@ -34,6 +35,7 @@
             <a href="water.php" class="w3-bar-item w3-button w3-padding-large">โรงน้ำ</a>
             <a href="employee.php" class="w3-bar-item w3-button w3-padding-large">พนักงาน</a>
             <a href="expenses.php" class="w3-bar-item w3-button w3-padding-large">รายจ่าย</a>
+             <a href="chackBalance.php" class="w3-bar-item w3-button w3-padding-large">เช็คยอด</a>
             <a href="../login.php" class="w3-bar-item w3-button w3-padding-large">ออกจากระบบ</a>
         </div>
     </div>

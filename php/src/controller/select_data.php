@@ -1,14 +1,14 @@
 <?php
-require_once '../server/server.php';
+require_once '../models/server.php';
 
-if (isset($_POST['user_id'])) {
-    $userId = $_POST['user_id'];
-    $select_user = $db->prepare("SELECT * FROM tbl_user WHERE user_id = :user_id "); // ตรวจสอบว่ามีรูปภาพหรือไม่
+if (isset($_POST['id_employee'])) {
+    $userId = $_POST['id_employee'];
+    $select_user = $conn->prepare("SELECT * FROM tbl_employee WHERE id_employee = :user_id "); // ตรวจสอบว่ามีรูปภาพหรือไม่
     $select_user->bindParam(':user_id', $userId);
     $select_user->execute();
     $userData = $select_user->fetch(PDO::FETCH_ASSOC);
-    if ($userData['img']) {
-        $userData['img'] = base64_encode($userData['img']);
+    if ($userData['img_employee']) {
+        $userData['img_employee'] = base64_encode($userData['img_employee']);
     }
     header("Content-Type: application/json");
     echo json_encode($userData);
