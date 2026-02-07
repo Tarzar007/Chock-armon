@@ -1,4 +1,4 @@
-<?php require_once('./server/server.php') ?>
+<?php require_once('../models/server.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style1.css">
+    <link rel="stylesheet" href="../css/style1.css">
 
     <title>เช็คยอดขายรายวัน</title>
 </head>
@@ -54,7 +54,6 @@
                         <th>รายได้น้ำมัน</th>
                         <th>รายได้วัสดุ</th>
                         <th>รายได้โรงน้ำ</th>
-                        <th>รายได้ขนม</th>
                         <th>รายได้ท้งหมด</th>
                         <th>รายจ่าย</th>
                         <th>รวมรายได้สุทธิ</th>
@@ -62,21 +61,20 @@
                 </thead>
                 <tbody>
                     <?php
-                    $select_sum = $db->prepare("SELECT
+                    $select_sum = $conn->prepare("SELECT
     date_time,
     SUM(total_income) AS total_income,
     SUM(total_expenses) AS total_expenses,
     SUM(profit) AS profit,
-    (SELECT SUM(income) FROM tbl_income WHERE type='ขนมและน้ำ' AND DATE(date_income) = date_time) AS candy,
-    (SELECT SUM(income) FROM tbl_income WHERE type='วัสดุและอุปกรณ์' AND DATE(date_income) = date_time) AS eq,
-    (SELECT SUM(income) FROM tbl_income WHERE type IN ('น้ำแพ็ค', 'น้ำถัง') AND DATE(date_income) = date_time) AS water,
-    (SELECT SUM(income) FROM tbl_income WHERE type IN ('เบนซิน91', 'เบนซิน95', 'ดีเซล') AND DATE(date_income) = date_time) AS gas
+    (SELECT SUM(price_income) FROM tbl_income WHERE product_name='วัสดุและอุปกรณ์' AND DATE(date_income) = date_time) AS eq,
+    (SELECT SUM(price_income) FROM tbl_income WHERE product_name IN ('น้ำแพ็ค', 'น้ำถัง') AND DATE(date_income) = date_time) AS water,
+    (SELECT SUM(price_income) FROM tbl_income WHERE product_name IN ('เบนซิน91', 'เบนซิน95', 'ดีเซล') AND DATE(date_income) = date_time) AS gas
 FROM (
     SELECT
         DATE(date_income) AS date_time,
-        SUM(income) AS total_income,
+        SUM(price_income) AS total_income,
         0 AS total_expenses,
-        SUM(income) AS profit
+        SUM(price_income) AS profit
     FROM
         tbl_income
     GROUP BY
@@ -88,7 +86,7 @@ FROM (
         SUM(expen_price) AS total_expenses,
         -SUM(expen_price) AS profit
     FROM
-        tbl_expen
+        tbl_expenses
     GROUP BY
         DATE(date_expen)
 ) AS combined
@@ -105,7 +103,6 @@ ORDER BY
                             <td><?php echo $row['gas'] ?></td>
                             <td><?php echo $row['eq'] ?></td>
                             <td><?php echo $row['water'] ?></td>
-                            <td><?php echo $row['candy'] ?></td>
                             <td><?php echo $row['total_income'] ?></td>
                             <td><?php echo $row['total_expenses'] ?></td>
                             <td><?php echo $row['profit'] ?></td>

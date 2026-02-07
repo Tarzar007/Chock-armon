@@ -19,5 +19,10 @@ services:
       MYSQL_DATABASE: chock_armon
       MYSQL_USER: user1
       MYSQL_PASSWORD: admin1234
+    volumes:
+      - mysql_data:/var/lib/mysql
     ports:
       - "3308:3306"
+
+volumes:
+  mysql_data:

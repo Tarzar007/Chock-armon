@@ -1,4 +1,4 @@
-<?php require_once('./server/server.php') ?>
+<?php require_once('../models/server.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style1.css">
+    <link rel="stylesheet" href="../css/style1.css">
 
     <title>เช็คยอดขายรายเดือน</title>
 </head>

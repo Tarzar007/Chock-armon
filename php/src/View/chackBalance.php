@@ -1,4 +1,4 @@
-<?php require_once('./server/server.php') ?>
+<?php require_once('../models/server.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,13 +30,13 @@
 
     $p = (isset($_GET['p']) ? $_GET['p'] : '');
     if ($p == 'chack_day') {
-        include('./components/chack_day.php');
+        include('../components/chack_day.php');
     } elseif ($p == 'chack_month') {
-        include('./components/chack_month.php');
+        include('../components/chack_month.php');
     } elseif ($p == 'chack_year') {
-        include('./components/chack_year.php');
+        include('../components/chack_year.php');
     } else {
-        include('./components/chack_day.php');
+        include('../components/chack_day.php');
     }
     ?>
 </body>
